@@ -1,5 +1,6 @@
 package com.example.user.yvd120201;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
     public void clickRead(View v)
     {
         String str = sp.getString("name", "Default");
+        tv2.setText(str);
+    }
+
+    public void clickSettings(View v)
+    {
+        Intent it = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(it);
+    }
+
+    public void clickRead2(View v)
+    {
+        SharedPreferences sp2 = getSharedPreferences(getPackageName() + "_preferences", MODE_PRIVATE);
+        String str = sp2.getString("example_text", "DEFAULT");
         tv2.setText(str);
     }
 }
